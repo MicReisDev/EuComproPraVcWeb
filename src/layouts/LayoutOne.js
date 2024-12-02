@@ -25,7 +25,7 @@ const LayoutOne = ({
         spaceTopClass="pt-100"
         spaceBottomClass="pb-70"
       />
-      <ScrollToTop/>
+      <ScrollToTop />
     </Fragment>
   );
 };

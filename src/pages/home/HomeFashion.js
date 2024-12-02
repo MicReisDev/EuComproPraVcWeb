@@ -2,7 +2,6 @@ import { Fragment } from "react";
 import SEO from "../../components/seo";
 import LayoutOne from "../../layouts/LayoutOne";
 import HeroSliderOne from "../../wrappers/hero-slider/HeroSliderOne";
-import FeatureIcon from "../../wrappers/feature-icon/FeatureIcon";
 import TabProduct from "../../wrappers/product/TabProduct";
 import BlogFeatured from "../../wrappers/blog-featured/BlogFeatured";
 
@@ -10,23 +9,17 @@ const HomeFashion = () => {
   return (
     <Fragment>
       <SEO
-        titleTemplate="Fashion Home"
-        description="Fashion home of flone react minimalist eCommerce template."
+        titleTemplate="EuComproPraVoce"
+        description="Compra em lotes de roupas do Brás e 25 de março por assessoria."
       />
       <LayoutOne
         headerContainerClass="container-fluid"
         headerPaddingClass="header-padding-1"
       >
-        {/* hero slider */}
         <HeroSliderOne />
 
-        {/* featured icon */}
-        <FeatureIcon spaceTopClass="pt-100" spaceBottomClass="pb-60" />
+        <TabProduct spaceBottomClass="pb-60" spaceTopClass="pt-60" category="fashion" />
 
-        {/* tab product */}
-        <TabProduct spaceBottomClass="pb-60" category="fashion" />
-
-        {/* blog featured */}
         <BlogFeatured spaceBottomClass="pb-55" />
       </LayoutOne>
     </Fragment>

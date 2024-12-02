@@ -16,15 +16,15 @@ const About = () => {
   return (
     <Fragment>
       <SEO
-        titleTemplate="About us"
-        description="About page of flone react minimalist eCommerce template."
+        titleTemplate="Sobre a Eu Compro Pra Você"
+        description="Quem somos e o que a Eu Compro Pra Você faz."
       /> 
       <LayoutOne headerTop="visible">
         {/* breadcrumb */}
         <Breadcrumb 
           pages={[
-            {label: "Home", path: process.env.PUBLIC_URL + "/" },
-            {label: "About us", path: process.env.PUBLIC_URL + pathname }
+            {label: "Início", path: process.env.PUBLIC_URL + "/" },
+            {label: "Sobre nós", path: process.env.PUBLIC_URL + pathname }
           ]} 
         />
 

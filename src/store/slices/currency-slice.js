@@ -3,17 +3,17 @@ const { createSlice } = require('@reduxjs/toolkit');
 const currencySlice = createSlice({
     name: "currency",
     initialState: {
-        currencySymbol: "€",
-        currencyName: "EUR",
+        currencySymbol: "R$",
+        currencyName: "BRL",
         currencyRate: 1
     },
     reducers: {
         setCurrency(state, action) {
             const currencyName = action.payload;
 
-            if (currencyName === "USD") {
+            if (currencyName === "BRL") {
                 return state = {
-                    currencySymbol: "$",
+                    currencySymbol: "R$",
                     currencyRate: 1,
                     currencyName
                 };
@@ -36,5 +36,4 @@ const currencySlice = createSlice({
     },
 });
 
-export const { setCurrency } = currencySlice.actions;
 export default currencySlice.reducer;

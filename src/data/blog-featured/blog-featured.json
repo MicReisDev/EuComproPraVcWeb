@@ -1,29 +1,20 @@
 [
   {
     "id": 1,
-    "image": "/assets/img/blog/blog-1.jpg",
-    "category": ["lifestyle", "men"],
-    "title": "A guide to latest trends",
-    "url": "/blog-details-standard",
-    "author": "Admin",
-    "authorUrl": "/blog-standard"
+    "image": "https://mapadobras.com.br/wp-content/uploads/2024/05/Ebook-Mapa-do-Bras.png",
+    "title": "Mapa do Brás",
+    "url": "https://mapadobras.com.br/?fbclid=IwY2xjawGU_QdleHRuA2FlbQIxMAABHXZmN4eB0hnXHg7A1_B7jwS7SqKP3NseZAY-hbQ2teNCdG-j5n1qy8wvwg_aem_wmYMr9pMHKf0U1Os7DIyqQ"
   },
   {
     "id": 2,
-    "image": "/assets/img/blog/blog-2.jpg",
-    "category": ["lifestyle"],
-    "title": "Five ways to lead a happy life",
-    "url": "/blog-details-standard",
-    "author": "Admin",
-    "authorUrl": "/blog-standard"
+    "image": "/assets/img/blog/expert-compras.jpg",
+    "title": "Curso Expert em Compras",
+    "url": "https://hotmart.com/pt-br/marketplace/produtos/hagsxd-expert-em-compras-ylu6a/K95501209R?fbclid=PAZXh0bgNhZW0CMTEAAaZR9QaSdd7ZO59H5GT9KWuk9GAVlj3OQUDHI4mm8IN3UfCUpbPheV93kEQ_aem_233oSCe3eyA__d77KQpgpA"
   },
   {
     "id": 3,
-    "image": "/assets/img/blog/blog-3.jpg",
-    "category": ["lifestyle"],
-    "title": "Tips on having a happy life",
-    "url": "/blog-details-standard",
-    "author": "Admin",
-    "authorUrl": "/blog-standard"
+    "image": "/assets/img/blog/loja-parceira.jpg",
+    "title": "Seja um parceiro",
+    "url": "https://wa.me/5511958963287?text=Olá,%20quero%20ser%20um%20parceiro%20do%20Eu%20Compro%20Pra%20Você!"
   }
 ]

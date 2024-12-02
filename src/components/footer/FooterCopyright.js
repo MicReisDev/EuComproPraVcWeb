@@ -13,13 +13,13 @@ const FooterCopyright = ({ footerLogo, spaceBottomClass, colorClass }) => {
       <p>
         &copy; {new Date().getFullYear()}{" "}
         <a
-          href="https://hasthemes.com"
+          href="https://eucompropravoce.com.br/"
           rel="noopener noreferrer"
           target="_blank"
         >
-          Flone
+          EuComproPraVocê
         </a>
-        .<br /> All Rights Reserved
+        .<br /> Todos os direitos reservados.
       </p>
     </div>
   );

@@ -32,7 +32,7 @@
 
       content: "";
 
-      background-color: #000;
+      background-color: $theme-color-three;
       @media #{$xs-layout} {
         left: -40px;
 
@@ -49,7 +49,7 @@
 
       content: "";
 
-      background-color: #000;
+      background-color: $theme-color-three;
       @media #{$xs-layout} {
         right: -40px;
 

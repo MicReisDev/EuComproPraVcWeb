@@ -22,9 +22,9 @@ SEO.propTypes = {
 }
 
 SEO.defaultProps = {
-    title: "Flone",
-    titleTemplate: "Product Page",
-    description: "Product page of flone react minimalist eCommerce template.",
+    title: "EuComproPraVoce",
+    titleTemplate: "Página de produtos",
+    description: "EuComproPraVoce é uma assessoria de compras online que ajuda você a comprar produtos de qualidade e com preços acessíveis.",
 };
 
 export default SEO;

@@ -12,17 +12,10 @@ const LoginRegister = () => {
   return (
     <Fragment>
       <SEO
-        titleTemplate="Login"
-        description="Login page of flone react minimalist eCommerce template."
+        titleTemplate="Entrar"
+        description="Entre ou crie uma conta para aproveitar os produtos da EuComproPraVocê!"
       />
       <LayoutOne headerTop="visible">
-        {/* breadcrumb */}
-        <Breadcrumb 
-          pages={[
-            {label: "Home", path: process.env.PUBLIC_URL + "/" },
-            {label: "Login Register", path: process.env.PUBLIC_URL + pathname }
-          ]} 
-        />
         <div className="login-register-area pt-100 pb-100">
           <div className="container">
             <div className="row">
@@ -32,12 +25,12 @@ const LoginRegister = () => {
                     <Nav variant="pills" className="login-register-tab-list">
                       <Nav.Item>
                         <Nav.Link eventKey="login">
-                          <h4>Login</h4>
+                          <h4>Entrar</h4>
                         </Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
                         <Nav.Link eventKey="register">
-                          <h4>Register</h4>
+                          <h4>Cadastre-se</h4>
                         </Nav.Link>
                       </Nav.Item>
                     </Nav>
@@ -59,13 +52,13 @@ const LoginRegister = () => {
                               <div className="button-box">
                                 <div className="login-toggle-btn">
                                   <input type="checkbox" />
-                                  <label className="ml-10">Remember me</label>
+                                  <label className="ml-10">Lembrar de mim</label>
                                   <Link to={process.env.PUBLIC_URL + "/"}>
-                                    Forgot Password?
+                                    Esqueceu sua senha?
                                   </Link>
                                 </div>
                                 <button type="submit">
-                                  <span>Login</span>
+                                  <span>Entrar</span>
                                 </button>
                               </div>
                             </form>
@@ -93,7 +86,7 @@ const LoginRegister = () => {
                               />
                               <div className="button-box">
                                 <button type="submit">
-                                  <span>Register</span>
+                                  <span>Registrar-se</span>
                                 </button>
                               </div>
                             </form>

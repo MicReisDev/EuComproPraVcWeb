@@ -10,7 +10,7 @@ const SectionTitle = ({
   borderClass
 }) => {
   return (
-    <div className={clsx("section-title", positionClass, spaceClass, borderClass)}>
+    <div className={`${clsx("section-title", positionClass, spaceClass, borderClass)} pb-40`}>
       <h2>{titleText}</h2>
       <p className={clsx(subtitleColorClass)}>
         {subtitleText}

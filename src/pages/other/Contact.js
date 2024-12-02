@@ -1,9 +1,8 @@
 import { Fragment } from "react"; 
-import { useLocation } from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import SEO from "../../components/seo";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
-import GoogleMap from "../../components/google-map"
 
 const Contact = () => {
   let { pathname } = useLocation();
@@ -11,33 +10,31 @@ const Contact = () => {
   return (
     <Fragment>
       <SEO
-        titleTemplate="Contact"
-        description="Contact page of flone react minimalist eCommerce template."
+        titleTemplate="Contatos"
+        description="Contatos da EuComproPraVoce. Entre em contato com a Eu compre pra você."
       />
       <LayoutOne headerTop="visible">
         {/* breadcrumb */}
         <Breadcrumb 
           pages={[
-            {label: "Home", path: process.env.PUBLIC_URL + "/" },
-            {label: "Contact", path: process.env.PUBLIC_URL + pathname }
+            {label: "Início", path: process.env.PUBLIC_URL + "/" },
+            {label: "Contatos", path: process.env.PUBLIC_URL + pathname }
           ]} 
         />
-        <div className="contact-area pt-100 pb-100">
+        <div className="contact-area pt-30 pb-40">
           <div className="container">
-            <div className="contact-map mb-10">
-              <GoogleMap lat={47.444} lng={-122.176} />
-            </div>
             <div className="custom-row-2">
-              <div className="col-12 col-lg-4 col-md-5">
+              <div className="col-12 col-lg-5 col-md-6">
                 <div className="contact-info-wrap">
                   <div className="single-contact-info">
                     <div className="contact-icon">
                       <i className="fa fa-phone" />
                     </div>
-                    <div className="contact-info-dec">
-                      <p>+012 345 678 102</p>
-                      <p>+012 345 678 102</p>
-                    </div>
+                    <Link to="https://wa.me/5511958963287" target="_blank" rel="noopener noreferrer">
+                      <div className="contact-info-dec">
+                        <p>+55 11 95896-3287 </p>
+                      </div>
+                    </Link>
                   </div>
                   <div className="single-contact-info">
                     <div className="contact-icon">
@@ -45,67 +42,48 @@ const Contact = () => {
                     </div>
                     <div className="contact-info-dec">
                       <p>
-                        <a href="mailto:yourname@email.com">
-                          yourname@email.com
+                        <a href="mailto:contato@eucompropravoce.com">
+                          contato@eucompropravoce.com
                         </a>
                       </p>
                       <p>
-                        <a href="https://yourwebsitename.com">
-                          yourwebsitename.com
+                        <a href="https://eucompropravoce.com.br/">
+                          eucompropravoce.com.br
                         </a>
                       </p>
                     </div>
                   </div>
-                  <div className="single-contact-info">
-                    <div className="contact-icon">
-                      <i className="fa fa-map-marker" />
-                    </div>
-                    <div className="contact-info-dec">
-                      <p>Address goes here, </p>
-                      <p>street, Crossroad 123.</p>
-                    </div>
-                  </div>
                   <div className="contact-social text-center">
-                    <h3>Follow Us</h3>
+                    <h3>Redes Sociais</h3>
                     <ul>
                       <li>
-                        <a href="//facebook.com">
-                          <i className="fa fa-facebook" />
+                        <a href="https://www.facebook.com/eucompropravoceoficial">
+                          <i className="fa fa-facebook"/>
                         </a>
                       </li>
                       <li>
-                        <a href="//pinterest.com">
-                          <i className="fa fa-pinterest-p" />
+                        <a href="https://www.instagram.com/eucompropravocebras/">
+                          <i className="fa fa-instagram"/>
                         </a>
                       </li>
                       <li>
-                        <a href="//thumblr.com">
-                          <i className="fa fa-tumblr" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="//vimeo.com">
-                          <i className="fa fa-vimeo" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="//twitter.com">
-                          <i className="fa fa-twitter" />
+                        <a href="https://www.youtube.com/@giseleoliveiraeucomproprav3338">
+                          <i className="fa fa-youtube-play"/>
                         </a>
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
-              <div className="col-12 col-lg-8 col-md-7">
+              <div className="col-12 col-lg-7 col-md-7">
                 <div className="contact-form">
                   <div className="contact-title mb-30">
-                    <h2>Get In Touch</h2>
+                    <h2>Entre Em Contato</h2>
                   </div>
                   <form className="contact-form-style">
                     <div className="row">
                       <div className="col-lg-6">
-                        <input name="name" placeholder="Name*" type="text" />
+                        <input name="name" placeholder="Nome*" type="text" />
                       </div>
                       <div className="col-lg-6">
                         <input name="email" placeholder="Email*" type="email" />
@@ -113,18 +91,18 @@ const Contact = () => {
                       <div className="col-lg-12">
                         <input
                           name="subject"
-                          placeholder="Subject*"
+                          placeholder="Assunto*"
                           type="text"
                         />
                       </div>
                       <div className="col-lg-12">
                         <textarea
                           name="message"
-                          placeholder="Your Message*"
+                          placeholder="Sua mensagem*"
                           defaultValue={""}
                         />
                         <button className="submit" type="submit">
-                          SEND
+                          Enviar
                         </button>
                       </div>
                     </div>

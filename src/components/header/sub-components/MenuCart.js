@@ -51,7 +51,7 @@ const MenuCart = () => {
                         {item.name}{" "}
                       </Link>
                     </h4>
-                    <h6>Qty: {item.quantity}</h6>
+                    <h6>Quantidade: {item.quantity}</h6>
                     <span>
                       {discountedPrice !== null
                         ? currency.currencySymbol + finalDiscountedPrice
@@ -60,8 +60,8 @@ const MenuCart = () => {
                     {item.selectedProductColor &&
                     item.selectedProductSize ? (
                       <div className="cart-item-variation">
-                        <span>Color: {item.selectedProductColor}</span>
-                        <span>Size: {item.selectedProductSize}</span>
+                        <span>Cor: {item.selectedProductColor}</span>
+                        <span>Tamanho: {item.selectedProductSize}</span>
                       </div>
                     ) : (
                       ""
@@ -86,18 +86,18 @@ const MenuCart = () => {
           </div>
           <div className="shopping-cart-btn btn-hover text-center">
             <Link className="default-btn" to={process.env.PUBLIC_URL + "/cart"}>
-              view cart
+              Ver Carrinho
             </Link>
             <Link
               className="default-btn"
               to={process.env.PUBLIC_URL + "/checkout"}
             >
-              checkout
+              Finalizar compra
             </Link>
           </div>
         </Fragment>
       ) : (
-        <p className="text-center">No items added to cart</p>
+        <p className="text-center">Nenhum item adicionado ao carrinho</p>
       )}
     </div>
   );

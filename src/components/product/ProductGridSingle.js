@@ -3,18 +3,14 @@ import PropTypes from "prop-types";
 import clsx from "clsx";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import Rating from "./sub-components/ProductRating";
 import { getDiscountPrice } from "../../helpers/product";
 import ProductModal from "./ProductModal";
 import { addToCart } from "../../store/slices/cart-slice";
-import { addToWishlist } from "../../store/slices/wishlist-slice";
 
 const ProductGridSingle = ({
   product,
   currency,
   cartItem,
-  wishlistItem,
-  compareItem,
   spaceBottomClass
 }) => {
   const [modalShow, setModalShow] = useState(false);
@@ -52,27 +48,13 @@ const ProductGridSingle = ({
               ) : (
                 ""
               )}
-              {product.new ? <span className="purple">New</span> : ""}
+              {product.new ? <span className="purple">Novo</span> : ""}
             </div>
           ) : (
             ""
           )}
 
           <div className="product-action">
-            <div className="pro-same-action pro-wishlist">
-              <button
-                className={wishlistItem !== undefined ? "active" : ""}
-                disabled={wishlistItem !== undefined}
-                title={
-                  wishlistItem !== undefined
-                    ? "Added to wishlist"
-                    : "Add to wishlist"
-                }
-                onClick={() => dispatch(addToWishlist(product))}
-              >
-                <i className="pe-7s-like" />
-              </button>
-            </div>
             <div className="pro-same-action pro-cart">
               {product.affiliateLink ? (
                 <a
@@ -81,11 +63,11 @@ const ProductGridSingle = ({
                   target="_blank"
                 >
                   {" "}
-                  Buy now{" "}
+                  Comprar{" "}
                 </a>
               ) : product.variation && product.variation.length >= 1 ? (
                 <Link to={`${process.env.PUBLIC_URL}/product/${product.id}`}>
-                  Select Option
+                  Visualizar Detalhes
                 </Link>
               ) : product.stock && product.stock > 0 ? (
                 <button
@@ -125,13 +107,6 @@ const ProductGridSingle = ({
               {product.name}
             </Link>
           </h3>
-          {product.rating && product.rating > 0 ? (
-            <div className="product-rating">
-              <Rating ratingValue={product.rating} />
-            </div>
-          ) : (
-            ""
-          )}
           <div className="product-price">
             {discountedPrice !== null ? (
               <Fragment>
@@ -155,8 +130,6 @@ const ProductGridSingle = ({
         discountedPrice={discountedPrice}
         finalProductPrice={finalProductPrice}
         finalDiscountedPrice={finalDiscountedPrice}
-        wishlistItem={wishlistItem}
-        compareItem={compareItem}
       />
     </Fragment>
   );
@@ -164,8 +137,6 @@ const ProductGridSingle = ({
 
 ProductGridSingle.propTypes = {
   cartItem: PropTypes.shape({}),
-  compareItem: PropTypes.shape({}),
-  wishlistItem: PropTypes.shape({}),
   currency: PropTypes.shape({}),
   product: PropTypes.shape({}),
   sliderClassName: PropTypes.string,
