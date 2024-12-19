@@ -7,13 +7,12 @@ import ProductGridSingle from "../../components/product/ProductGridSingle";
 const ProductGrid = ({
   spaceBottomClass,
   category,
-  type,
   limit
 }) => {
   const { products } = useSelector((state) => state.product);
   const currency = useSelector((state) => state.currency);
   const { cartItems } = useSelector((state) => state.cart);
-  const prods = getProducts(products, category, type, limit)
+  const prods = getProducts(products, category, limit)
 
   return (
     <Fragment>

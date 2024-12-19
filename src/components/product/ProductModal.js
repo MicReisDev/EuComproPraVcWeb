@@ -75,7 +75,7 @@ function ProductModal({ product, currency, discountedPrice, finalProductPrice, f
                       <SwiperSlide key={i}>
                         <div className="single-image">
                           <img
-                            src={process.env.PUBLIC_URL + img}
+                            src={process.env.REACT_APP_API_URL + img}
                             className="img-fluid"
                             alt="Product"
                           />
@@ -93,7 +93,7 @@ function ProductModal({ product, currency, discountedPrice, finalProductPrice, f
                       <SwiperSlide key={i}>
                         <div className="single-image">
                           <img
-                            src={process.env.PUBLIC_URL + img}
+                            src={process.env.REACT_APP_API_URL + img}
                             className="img-fluid"
                             alt=""
                           />
@@ -171,24 +171,20 @@ function ProductModal({ product, currency, discountedPrice, finalProductPrice, f
                     </button>
                   </div>
                   <div className="pro-details-cart btn-hover">
-                    {productStock && productStock > 0 ? (
-                      <button
-                        onClick={() =>
-                          dispatch(addToCart({
-                            ...product,
-                            quantity: quantityCount,
-                            selectedProductColor: selectedProductColor ? selectedProductColor : product.selectedProductColor ? product.selectedProductColor : null,
-                            selectedProductSize: selectedProductSize ? selectedProductSize : product.selectedProductSize ? product.selectedProductSize : null
-                          }))
-                        }
-                        disabled={productCartQty >= productStock}
-                      >
-                        {" "}
-                        Adicionar lote à sacola
-                      </button>
-                    ) : (
-                      <button disabled>Out of Stock</button>
-                    )}
+                    <button
+                      onClick={() =>
+                        dispatch(addToCart({
+                          ...product,
+                          quantity: quantityCount,
+                          selectedProductColor: selectedProductColor ? selectedProductColor : product.selectedProductColor ? product.selectedProductColor : null,
+                          selectedProductSize: selectedProductSize ? selectedProductSize : product.selectedProductSize ? product.selectedProductSize : null
+                        }))
+                      }
+                      disabled={productCartQty >= productStock}
+                    >
+                      {" "}
+                      Adicionar lote à sacola
+                    </button>
                   </div>
                 </div>
               )}

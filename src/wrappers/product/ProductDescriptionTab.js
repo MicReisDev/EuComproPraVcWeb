@@ -3,7 +3,12 @@ import clsx from "clsx";
 import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
 
-const ProductDescriptionTab = ({ spaceBottomClass, productFullDesc }) => {
+const ProductDescriptionTab = ({
+  spaceBottomClass,
+  otherInfo,
+  material,
+  batchUnits
+}) => {
   return (
     <div className={clsx("description-review-area", spaceBottomClass)}>
       <div className="container">
@@ -21,146 +26,15 @@ const ProductDescriptionTab = ({ spaceBottomClass, productFullDesc }) => {
                 <div className="product-anotherinfo-wrapper">
                   <ul>
                     <li>
-                      <span>Peso</span> 400 g
+                      <span>Quantidade de peças no lote</span> {batchUnits}
                     </li>
                     <li>
-                      <span>Tamanho</span>10 x 10 x 15 cm{" "}
+                      <span>Material</span> {material}
                     </li>
                     <li>
-                      <span>Material</span> 60% Algodão, 40% Poliéster
-                    </li>
-                    <li>
-                      <span>Outras Informações</span> Conforto termico e alta durabilidade
+                      <span>Outras Informações</span> {otherInfo}
                     </li>
                   </ul>
-                </div>
-              </Tab.Pane>
-              <Tab.Pane eventKey="productDescription">
-                {productFullDesc}
-              </Tab.Pane>
-              <Tab.Pane eventKey="productReviews">
-                <div className="row">
-                  <div className="col-lg-7">
-                    <div className="review-wrapper">
-                      <div className="single-review">
-                        <div className="review-img">
-                          <img
-                            src={
-                              process.env.PUBLIC_URL +
-                              "/assets/img/testimonial/1.jpg"
-                            }
-                            alt=""
-                          />
-                        </div>
-                        <div className="review-content">
-                          <div className="review-top-wrap">
-                            <div className="review-left">
-                              <div className="review-name">
-                                <h4>White Lewis</h4>
-                              </div>
-                              <div className="review-rating">
-                                <i className="fa fa-star" />
-                                <i className="fa fa-star" />
-                                <i className="fa fa-star" />
-                                <i className="fa fa-star" />
-                                <i className="fa fa-star" />
-                              </div>
-                            </div>
-                            <div className="review-left">
-                              <button>Reply</button>
-                            </div>
-                          </div>
-                          <div className="review-bottom">
-                            <p>
-                              Vestibulum ante ipsum primis aucibus orci
-                              luctustrices posuere cubilia Curae Suspendisse
-                              viverra ed viverra. Mauris ullarper euismod
-                              vehicula. Phasellus quam nisi, congue id nulla.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="single-review child-review">
-                        <div className="review-img">
-                          <img
-                            src={
-                              process.env.PUBLIC_URL +
-                              "/assets/img/testimonial/2.jpg"
-                            }
-                            alt=""
-                          />
-                        </div>
-                        <div className="review-content">
-                          <div className="review-top-wrap">
-                            <div className="review-left">
-                              <div className="review-name">
-                                <h4>White Lewis</h4>
-                              </div>
-                              <div className="review-rating">
-                                <i className="fa fa-star" />
-                                <i className="fa fa-star" />
-                                <i className="fa fa-star" />
-                                <i className="fa fa-star" />
-                                <i className="fa fa-star" />
-                              </div>
-                            </div>
-                            <div className="review-left">
-                              <button>Reply</button>
-                            </div>
-                          </div>
-                          <div className="review-bottom">
-                            <p>
-                              Vestibulum ante ipsum primis aucibus orci
-                              luctustrices posuere cubilia Curae Suspendisse
-                              viverra ed viverra. Mauris ullarper euismod
-                              vehicula. Phasellus quam nisi, congue id nulla.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-lg-5">
-                    <div className="ratting-form-wrapper pl-50">
-                      <h3>Add a Review</h3>
-                      <div className="ratting-form">
-                        <form action="#">
-                          <div className="star-box">
-                            <span>Your rating:</span>
-                            <div className="ratting-star">
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                            </div>
-                          </div>
-                          <div className="row">
-                            <div className="col-md-6">
-                              <div className="rating-form-style mb-10">
-                                <input placeholder="Name" type="text" />
-                              </div>
-                            </div>
-                            <div className="col-md-6">
-                              <div className="rating-form-style mb-10">
-                                <input placeholder="Email" type="email" />
-                              </div>
-                            </div>
-                            <div className="col-md-12">
-                              <div className="rating-form-style form-submit">
-                                <textarea
-                                  name="Your Review"
-                                  placeholder="Message"
-                                  defaultValue={""}
-                                />
-                                <input type="submit" defaultValue="Submit" />
-                              </div>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </Tab.Pane>
             </Tab.Content>
@@ -172,8 +46,10 @@ const ProductDescriptionTab = ({ spaceBottomClass, productFullDesc }) => {
 };
 
 ProductDescriptionTab.propTypes = {
-  productFullDesc: PropTypes.string,
-  spaceBottomClass: PropTypes.string
+  spaceBottomClass: PropTypes.string,
+  otherInfo: PropTypes.string,
+  material: PropTypes.string,
+  batchUnits: PropTypes.number
 };
 
 export default ProductDescriptionTab;

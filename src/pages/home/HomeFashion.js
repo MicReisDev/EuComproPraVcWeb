@@ -18,7 +18,7 @@ const HomeFashion = () => {
       >
         <HeroSliderOne />
 
-        <TabProduct spaceBottomClass="pb-60" spaceTopClass="pt-60" category="fashion" />
+        <TabProduct spaceBottomClass="pb-60" spaceTopClass="pt-60"/>
 
         <BlogFeatured spaceBottomClass="pb-55" />
       </LayoutOne>

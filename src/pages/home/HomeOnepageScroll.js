@@ -69,7 +69,7 @@ const HomeOnepageScroll = () => {
                             <img
                               className="animated"
                               alt=""
-                              src={process.env.PUBLIC_URL + single.image}
+                              src={process.env.REACT_APP_API_URL + single.image}
                             />
                           </div>
                         </div>

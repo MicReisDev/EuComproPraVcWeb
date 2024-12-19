@@ -41,7 +41,9 @@ const ProductTabLeft = () => {
         {/* product description tab */}
         <ProductDescriptionTab
           spaceBottomClass="pb-90"
-          productFullDesc={product.fullDescription}
+          otherInfo={product.otherInformations}
+          material={product.material}
+          batchUnits={product.batchUnits}
         />
       </LayoutOne>
     </Fragment>

@@ -173,9 +173,9 @@ const Checkout = () => {
                       <i className="pe-7s-cash"></i>
                     </div>
                     <div className="item-empty-area__text">
-                      No items found in cart to checkout <br />{" "}
-                      <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
-                        Shop Now
+                      Nenhum item foi encontrado no seu carrinho<br />{" "}
+                      <Link to={process.env.PUBLIC_URL + "/"}>
+                        Comprar agora
                       </Link>
                     </div>
                   </div>
