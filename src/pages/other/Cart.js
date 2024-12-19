@@ -5,7 +5,12 @@ import SEO from "../../components/seo";
 import { getDiscountPrice } from "../../helpers/product";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
-import { addToCart, decreaseQuantity, deleteFromCart, deleteAllFromCart } from "../../store/slices/cart-slice";
+import {
+  addToCart,
+  decreaseQuantity,
+  deleteFromCart,
+  deleteAllFromCart,
+} from "../../store/slices/cart-slice";
 import { cartItemStock } from "../../helpers/product";
 
 const Cart = () => {
@@ -14,7 +19,7 @@ const Cart = () => {
   const [quantityCount] = useState(1);
   const dispatch = useDispatch();
   let { pathname } = useLocation();
-  
+
   const currency = useSelector((state) => state.currency);
   const { cartItems } = useSelector((state) => state.cart);
 
@@ -35,17 +40,7 @@ const Cart = () => {
                   <div className="col-12">
                     <div className="table-content table-responsive cart-table-content">
                       <table>
-                        <thead>
-                        <tr>
-                          <th>Imagem</th>
-                          <th>Nome do Produto</th>
-                          <th>Preço Unitário</th>
-                          <th>Quantidade</th>
-                          <th>Subtotal</th>
-                          <th></th>
-                        </tr>
-                        </thead>
-                          <tbody>
+                        <tbody>
                           {cartItems.map((cartItem, key) => {
                             const discountedPrice = getDiscountPrice(
                               cartItem.price,
@@ -76,7 +71,7 @@ const Cart = () => {
                                     <img
                                       className="img-fluid"
                                       src={
-                                        process.env.REACT_APP_API_URL +
+                                        process.env.PUBLIC_URL +
                                         cartItem.image[0]
                                       }
                                       alt=""
@@ -94,19 +89,6 @@ const Cart = () => {
                                   >
                                     {cartItem.name}
                                   </Link>
-                                  {cartItem.selectedProductColor &&
-                                  cartItem.selectedProductSize ? (
-                                    <div className="cart-item-variation">
-                                      <span>
-                                        Color: {cartItem.selectedProductColor}
-                                      </span>
-                                      <span>
-                                        Size: {cartItem.selectedProductSize}
-                                      </span>
-                                    </div>
-                                  ) : (
-                                    ""
-                                  )}
                                 </td>
 
                                 <td className="product-price-cart">
@@ -148,11 +130,22 @@ const Cart = () => {
                                     <button
                                       className="inc qtybutton"
                                       onClick={() =>
-                                        cartItem.quantity < 5 &&
-                                        dispatch(addToCart({
-                                          ...cartItem,
-                                          quantity: quantityCount
-                                        }))
+                                        dispatch(
+                                          addToCart({
+                                            ...cartItem,
+                                            quantity: quantityCount,
+                                          })
+                                        )
+                                      }
+                                      disabled={
+                                        cartItem !== undefined &&
+                                        cartItem.quantity &&
+                                        cartItem.quantity >=
+                                          cartItemStock(
+                                            cartItem,
+                                            cartItem.selectedProductColor,
+                                            cartItem.selectedProductSize
+                                          )
                                       }
                                     >
                                       +
@@ -174,7 +167,9 @@ const Cart = () => {
                                 <td className="product-remove">
                                   <button
                                     onClick={() =>
-                                      dispatch(deleteFromCart(cartItem.cartItemId))
+                                      dispatch(
+                                        deleteFromCart(cartItem.cartItemId)
+                                      )
                                     }
                                   >
                                     <i className="fa fa-times"></i>
@@ -193,9 +188,7 @@ const Cart = () => {
                   <div className="col-lg-12">
                     <div className="cart-shiping-update-wrapper">
                       <div className="cart-shiping-update">
-                        <Link
-                          to={process.env.PUBLIC_URL + "/"}
-                        >
+                        <Link to={process.env.PUBLIC_URL + "/"}>
                           Voltar às compras
                         </Link>
                       </div>
@@ -217,7 +210,7 @@ const Cart = () => {
                         </h4>
                       </div>
                       <h5>
-                        Produtos {" "}
+                        Produtos{" "}
                         <span>
                           {currency.currencySymbol + cartTotalPrice.toFixed(2)}
                         </span>

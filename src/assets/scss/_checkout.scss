@@ -1,29 +1,28 @@
 /*------- 21. Checkout page  -----------*/
 
 .billing-info-wrap {
+  background-color: #ffe4e1;
+  padding: 38px 45px 44px;
+  border-radius: 10px;
   h3 {
     font-size: 20px;
     font-weight: 500;
-
     margin: 0 0 20px;
-
-    color: #000;
+    color: $theme-color-three;
   }
   .billing-info,
   .billing-select {
     label {
       margin: 0 0 7px;
-
-      color: #000;
+      color: $theme-color-two;
     }
     input {
       font-size: 14px;
-
       padding-right: 10px;
       padding-left: 20px;
-
       color: #333;
-      border: 1px solid #e6e6e6;
+      border: 1px solid $theme-color-two;
+      border-radius: 10px;
       background: transparent none repeat scroll 0 0;
     }
     input.billing-address {
@@ -33,24 +32,21 @@
   .billing-select {
     select {
       font-size: 14px;
-
       height: 45px;
       padding: 2px 20px;
-
-//background: rgba(0, 0, 0, 0) url("../../assets/img/icon-img/select.png") no-repeat scroll right 18px center;
-
+      //background: rgba(0, 0, 0, 0) url("../../assets/img/icon-img/select.png") no-repeat scroll right 18px center;
       cursor: pointer;
-
       color: #333;
-      border: 1px solid #e6e6e6;
-
+      border: 1px solid $theme-color-two;
+      border-radius: 10px;
       -webkit-appearance: none;
-         -moz-appearance: none;
+      -moz-appearance: none;
     }
   }
   .checkout-account {
     display: flex;
     align-items: center;
+
     input {
       display: inline-block;
       float: left;
@@ -71,7 +67,6 @@
   .checkout-account-toggle {
     input {
       font-size: 14px;
-
       margin: 0 0 20px;
       padding-right: 10px;
       padding-left: 20px;
@@ -130,6 +125,9 @@
 }
 
 .your-order-area {
+  background: #ffe4e1;
+  border-radius: 10px;
+  padding: 38px 45px 44px;
   @media #{$md-layout} {
     margin-top: 30px;
   }
@@ -142,12 +140,9 @@
 
     margin: 0 0 20px;
 
-    color: #000;
+    color: $theme-color-three;
   }
   .your-order-wrap {
-    padding: 38px 45px 44px;
-
-    background: #f6f6f6;
     @media #{$lg-layout} {
       padding: 30px 20px 36px;
     }
@@ -159,10 +154,10 @@
         ul {
           display: flex;
           justify-content: space-between;
+          color: $theme-color-two;
           li {
             font-size: 16px;
             font-weight: 500;
-
             list-style: outside none none;
           }
         }
@@ -170,9 +165,8 @@
       .your-order-middle {
         margin: 29px 0;
         padding: 19px 0 18px;
-
-        border-top: 1px solid #dee0e4;
-        border-bottom: 1px solid #dee0e4;
+        border-top: 1px solid #f4978e;
+        border-bottom: 1px solid #f4978e;
         ul {
           li {
             display: flex;
@@ -197,16 +191,15 @@
             font-size: 16px;
             font-weight: 400;
 
-            color: #212121;
+            color: #333;
           }
         }
       }
       .your-order-total {
         margin: 18px 0 33px;
         padding: 17px 0 19px;
-
-        border-top: 1px solid #dee0e4;
-        border-bottom: 1px solid #dee0e4;
+        border-top: 1px solid #f4978e;
+        border-bottom: 1px solid #f4978e;
         ul {
           display: flex;
           align-items: center;
@@ -215,15 +208,13 @@
             font-size: 18px;
             font-weight: 500;
 
-            color: #212121;
+            color: $theme-color-three;
           }
           li {
             font-size: 16px;
             font-weight: 500;
-
             list-style: outside none none;
-
-            color: $theme-color;
+            color: $theme-color-three;
           }
         }
       }
@@ -284,7 +275,7 @@
     background: none;
     background-color: $theme-color;
     &:hover {
-      background-color: #333;
+      background-color: $theme-color-two;
     }
   }
 }
@@ -295,4 +286,18 @@
       padding-bottom: 60px;
     }
   }
+}
+
+.form-select {
+  background-color: #ffe4e1;
+}
+
+.contrast {
+  margin: 2px;
+  font-weight: 700;
+  color: $theme-color-three !important;
+}
+
+.info-frete {
+  font-size: 12px;
 }

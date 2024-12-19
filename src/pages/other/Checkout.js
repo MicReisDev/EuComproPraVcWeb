@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { getDiscountPrice } from "../../helpers/product";
@@ -6,7 +6,27 @@ import SEO from "../../components/seo";
 import LayoutOne from "../../layouts/LayoutOne";
 
 const Checkout = () => {
+  const [shipAddress, setShipAddress] = useState("");
+
   let cartTotalPrice = 0;
+
+  const labels = useMemo(() => {
+    const isExcursao = shipAddress === "2";
+    return {
+      address: isExcursao ? "Endereço excursão" : "Endereço",
+      city: isExcursao ? "Cidade excursão" : "Cidade",
+      state: isExcursao ? "Estado excursão" : "Estado",
+      nameGuide: isExcursao ? "Nome Guia" : "",
+    };
+  }, [shipAddress]);
+
+  const phoneMask = (value) => {
+    if (!value) return "";
+    value = value.replace(/\D/g, "");
+    value = value.replace(/(\d{2})(\d)/, "($1) $2");
+    value = value.replace(/(\d)(\d{4})$/, "$1-$2");
+    return value;
+  };
 
   const currency = useSelector((state) => state.currency);
   const { cartItems } = useSelector((state) => state.cart);
@@ -25,6 +45,30 @@ const Checkout = () => {
                 <div className="col-lg-7">
                   <div className="billing-info-wrap">
                     <h3>Endereço de entrega</h3>
+                    <div className="col-lg-6 col-md-6">
+                      <div className="billing-select mb-20">
+                        <label>Forma de envio</label>
+                        <select
+                          className="form-select"
+                          onChange={(e) => setShipAddress(e.target.value)}
+                        >
+                          <option selected disabled>
+                            Selecione um envio
+                          </option>
+                          <option value={"1"}>Correios</option>
+                          <option value={"2"}>Excursão</option>
+                          <option value={"3"}>Transportadora</option>
+                        </select>
+                      </div>
+                    </div>
+                    {shipAddress === "2" && (
+                      <div className="col-lg-12">
+                        <div className="billing-info mb-20">
+                          <label>Nome Guia excursão</label>
+                          <input type="text" />
+                        </div>
+                      </div>
+                    )}
                     <div className="row">
                       <div className="col-lg-12">
                         <div className="billing-info mb-20">
@@ -35,7 +79,7 @@ const Checkout = () => {
 
                       <div className="col-lg-12">
                         <div className="billing-info mb-20">
-                          <label>Endereço</label>
+                          <label>{labels.address}</label>
                           <input
                             className="billing-address"
                             placeholder="Endereço e número"
@@ -50,16 +94,18 @@ const Checkout = () => {
 
                       <div className="col-lg-12">
                         <div className="billing-info mb-20">
-                          <label>Cidade</label>
+                          <label>{labels.city}</label>
                           <input type="text" />
                         </div>
                       </div>
 
                       <div className="col-lg-6 col-md-6">
                         <div className="billing-select mb-20">
-                          <label>Estado</label>
-                          <select>
-                            <option>Selecione um estado</option>
+                          <label>{labels.state}</label>
+                          <select className="form-select">
+                            <option selected disabled>
+                              Selecione um estado
+                            </option>
                             <option>São Paulo</option>
                           </select>
                         </div>
@@ -68,21 +114,32 @@ const Checkout = () => {
                       <div className="col-lg-6 col-md-6">
                         <div className="billing-info mb-20">
                           <label>CEP</label>
-                          <input type="text"/>
+                          <input type="text" placeholder="00000-000" />
                         </div>
                       </div>
 
                       <div className="col-lg-6 col-md-6">
                         <div className="billing-info mb-20">
-                        <label>Telefone</label>
-                          <input type="text" />
+                          <label>Telefone</label>
+                          <input
+                            maxLength={15}
+                            type="text"
+                            placeholder="(xx) xxxxx-xxxx"
+                          />
                         </div>
                       </div>
 
                       <div className="col-lg-6 col-md-6">
                         <div className="billing-info mb-20">
                           <label>Email</label>
-                          <input type="text" />
+                          <input type="text" placeholder="email@example.com" />
+                        </div>
+                      </div>
+
+                      <div className="col-lg-6 col-md-6">
+                        <div className="billing-info mb-20">
+                          <label>Data para entrega</label>
+                          <input className="form-select" type="date" />
                         </div>
                       </div>
                     </div>
@@ -143,7 +200,9 @@ const Checkout = () => {
                         </div>
                         <div className="your-order-bottom">
                           <ul>
-                            <li className="your-order-shipping">Entrega</li>
+                            <li className="your-order-shipping">
+                              Entrega<span className="contrast">*</span>
+                            </li>
                             <li>R$ 0</li>
                           </ul>
                         </div>
@@ -162,6 +221,11 @@ const Checkout = () => {
                     <div className="place-order mt-25">
                       <button className="btn-hover">Pagar</button>
                     </div>
+                  </div>
+                  <div className="info-frete">
+                    <span className="contrast">*</span>
+                    <b>Atenção!</b> O frete será calculado e cobrado
+                    posteriormente pelo prestador.{" "}
                   </div>
                 </div>
               </div>

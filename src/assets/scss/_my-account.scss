@@ -4,27 +4,27 @@
   .accordion {
     &-item {
       margin-bottom: 20px;
-      border: 1px solid #ebebeb;
+      border: 3px solid #ffe4e1;
     }
     &-button {
-      background-color: #f9f9f9;
+      background-color: #ffeff0;
       font-size: 15px;
       font-weight: 500;
       margin: 0;
       text-transform: uppercase;
-      color: #242424;
+      color: $theme-color-two;
       display: block;
       padding: 16px 55px;
       position: relative;
       span {
-        color: #242424;
+        color: $theme-color-two;
         font-size: 15px;
         left: 20px;
         position: absolute;
         top: 16px;
       }
-      &[aria-expanded="true"]{
-        border-bottom: 1px solid #ebebeb;
+      &[aria-expanded="true"] {
+        border-bottom: 1px solid #ffe4e1;
       }
       &:focus {
         box-shadow: none;
@@ -34,12 +34,12 @@
         font-size: 14px;
         padding: 16px 30px 16px 40px;
       }
-  
+
       &:hover {
         color: $theme-color;
       }
       &::before {
-        color: #000;
+        color: $theme-color-two;
         content: "\f107";
         display: inline-block;
         font-family: "FontAwesome";
@@ -53,7 +53,7 @@
       }
     }
     &-body {
-      border-bottom: 1px solid #ebebeb;
+      border-bottom: 1px solid #ffe4e1;
     }
   }
 }
@@ -63,7 +63,7 @@
     padding: 30px 20px;
     background-color: #fff;
     .account-info-wrapper {
-      border-bottom: 1px solid #eaeaea;
+      border-bottom: 1px solid #ffe4e1;
       margin-bottom: 28px;
       padding-bottom: 30px;
       h4 {
@@ -80,14 +80,14 @@
     .billing-info {
       margin-bottom: 20px;
       label {
-        color: #000;
+        color: $theme-color-two;
         font-size: 14px;
         text-transform: capitalize;
       }
       input {
         background: transparent none repeat scroll 0 0;
-        border: 1px solid #ebebeb;
-        color: #000;
+        border: 1px solid $theme-color;
+        color: #333;
         height: 40px;
         padding: 0 15px;
       }
@@ -115,9 +115,9 @@
       }
       .billing-btn {
         button {
-          background-color: #f2f2f2;
+          background-color: $theme-color;
           border: medium none;
-          color: #000;
+          color: $white;
           display: inline-block;
           font-size: 14px;
           font-weight: 500;
@@ -127,7 +127,7 @@
           cursor: pointer;
           transition: all 0.3s ease 0s;
           &:hover {
-            background: $theme-color;
+            background: $theme-color-two;
             color: #fff;
           }
         }
@@ -168,7 +168,7 @@
         button {
           background: none;
           border: none;
-          background-color: #000;
+          background-color: $theme-color-three;
           color: #fff;
           display: inline-block;
           line-height: 1;
@@ -177,12 +177,12 @@
           text-transform: uppercase;
           font-weight: 500;
           &:hover {
-            background-color: $theme-color;
+            background-color: $theme-color-two;
           }
           &.edit {
-            background-color: #df5c39;
+            background-color: $theme-color;
             &:hover {
-              background-color: $theme-color;
+              background-color: $theme-color-two;
             }
           }
         }

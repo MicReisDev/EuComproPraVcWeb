@@ -34,21 +34,23 @@
 //   }
 // }
 
-
 .breadcrumb {
   --bs-breadcrumb-margin-bottom: 0;
-  --bs-breadcrumb-divider-color: #000000;
-  --bs-breadcrumb-item-active-color: #000000;
+  --bs-breadcrumb-divider-color: #cb242a;
+  --bs-breadcrumb-item-active-color: #cb242a;
   --bs-breadcrumb-item-padding-x: 15px;
+  background-color: #ffe4e1;
+  padding: 10px;
+  border-radius: 10px;
   justify-content: center;
   &-item {
-    color: #5b5858;
+    color: #fcdce9;
     display: inline-block;
     font-size: 15px;
     font-weight: 500;
     text-transform: uppercase;
-    a{
-      color: inherit;
+    a {
+      color: $theme-color-three;
     }
   }
 }
