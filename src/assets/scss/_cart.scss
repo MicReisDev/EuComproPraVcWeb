@@ -10,39 +10,14 @@
 h3.cart-page-title {
   font-size: 20px;
   font-weight: 500;
-
   margin: 0 0 15px;
 }
 
 .cart-table-content {
   table {
-    border: 1px solid #ebebeb;
-    thead > tr {
-      border: 1px solid #ebebeb;
-      background-color: #f9f9f9;
-      th {
-        font-size: 14px;
-        font-weight: 500;
-
-        padding: 21px 45px 22px;
-
-        text-align: center;
-        vertical-align: middle;
-        white-space: nowrap;
-        text-transform: uppercase;
-
-        color: #333;
-        border-top: medium none;
-        @media #{$lg-layout} {
-          padding: 21px 35px 22px;
-        }
-        @media #{$xs-layout} {
-          padding: 21px 20px 22px;
-        }
-      }
-    }
+    border: 1px solid #ffe4e1;
     tbody > tr {
-      border-bottom: 1px solid #ebebeb;
+      background-color: #ffe4e1;
       td.product-thumbnail {
         width: 150px;
       }
@@ -54,7 +29,7 @@ h3.cart-page-title {
           font-size: 15px;
           font-weight: 500;
 
-          color: #333;
+          color: $theme-color-two;
           &:hover {
             color: $theme-color;
           }
@@ -65,20 +40,20 @@ h3.cart-page-title {
         span {
           font-weight: 500;
 
-          color: #333;
+          color: $theme-color-two;
           &.old {
             margin-right: 10px;
 
             text-decoration: line-through;
 
-            color: #8e8e8e;
+            color: $theme-color-two;
           }
         }
       }
       td.product-subtotal {
         font-weight: 500;
 
-        color: #333;
+        color: $theme-color-two;
       }
       td.product-quantity {
         width: 435px;
@@ -104,7 +79,7 @@ h3.cart-page-title {
             transition: all 0.3s ease 0s;
             text-align: center;
 
-            color: #333;
+            color: $theme-color-two;
             border: none;
             background: none;
           }
@@ -136,7 +111,7 @@ h3.cart-page-title {
 
             text-align: center;
 
-            color: #333;
+            color: $theme-color-two;
             border: 1px solid #e1e1e1;
             background: transparent none repeat scroll 0 0;
           }
@@ -150,7 +125,7 @@ h3.cart-page-title {
 
           margin: 0 13px;
 
-          color: #666;
+          color: $theme-color-three;
           border: none;
           background: none;
           &:hover {
@@ -220,9 +195,9 @@ h3.cart-page-title {
 
     text-transform: uppercase;
 
-    color: #363f4d;
+    color: white;
     border-radius: 50px;
-    background-color: #f2f2f2;
+    background-color: $theme-color;
     @media #{$md-layout} {
       font-size: 13px;
 
@@ -234,7 +209,7 @@ h3.cart-page-title {
     }
     &:hover {
       color: #fff;
-      background-color: $theme-color;
+      background-color: $theme-color-two;
     }
   }
   .cart-clear > button {
@@ -327,12 +302,12 @@ h3.cart-page-title {
           cursor: pointer;
 
           color: #242424;
-//background: #fff url("../../assets/img/icon-img/cart.png") no-repeat scroll right 18px center;
+          //background: #fff url("../../assets/img/icon-img/cart.png") no-repeat scroll right 18px center;
           border: 1px solid #ebebeb;
           box-shadow: none;
 
           -webkit-appearance: none;
-             -moz-appearance: none;
+          -moz-appearance: none;
         }
         input {
           height: 40px;
@@ -371,7 +346,6 @@ h3.cart-page-title {
         height: 40px;
         margin-bottom: 30px;
         padding-left: 10px;
-
         border: 1px solid #ebebeb;
         background: #fff;
       }
@@ -390,7 +364,7 @@ h3.cart-page-title {
         border-radius: 50px;
         background-color: $theme-color;
         &:hover {
-          background-color: #333;
+          background-color: $theme-color-two;
         }
       }
     }
@@ -399,10 +373,9 @@ h3.cart-page-title {
 
 .grand-totall {
   padding: 45px 30px 50px;
-
-  border: 1px solid #ebebeb;
+  border: 1px solid #ffe4e1;
   border-radius: 5px;
-  background-color: #f9f9f9;
+  background-color: #ffe4e1;
   @media #{$lg-layout} {
     padding: 45px 18px 50px;
   }
@@ -422,8 +395,6 @@ h3.cart-page-title {
 
       content: "";
       transition: all 0.4s ease 0s;
-
-      background-color: #e3e1e1;
     }
     h4.cart-bottom-title {
       font-size: 18px;
@@ -437,25 +408,21 @@ h3.cart-page-title {
     .section-bg-gary-cart {
       position: relative;
       z-index: 9;
-
-      background-color: #f9f9f9;
     }
   }
   h5 {
     font-size: 14px;
-
+    color: $theme-color-two;
     margin: 36px 0 27px;
     span {
       font-size: 18px;
       font-weight: 500;
-
       float: right;
     }
   }
   .total-shipping {
     margin: 0 0 27px;
     padding: 28px 0;
-
     border-top: 1px solid #ebebeb;
     border-bottom: 1px solid #ebebeb;
     h5 {
@@ -477,14 +444,11 @@ h3.cart-page-title {
         input {
           position: relative;
           top: 2px;
-
           width: 13px;
           height: 13px;
           margin-right: 10px;
           padding: 0;
-
           cursor: pointer;
-
           color: #626262;
           border: 1px solid #d7d7d7;
           border-radius: 5px !important;
@@ -502,7 +466,7 @@ h3.cart-page-title {
 
     margin: 0 0 25px;
 
-    color: $theme-color;
+    color: #333;
     span {
       float: right;
     }
@@ -523,7 +487,7 @@ h3.cart-page-title {
     border-radius: 50px;
     background-color: $theme-color;
     &:hover {
-      background-color: #333;
+      background-color: $theme-color-two;
     }
   }
 }

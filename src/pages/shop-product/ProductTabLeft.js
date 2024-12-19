@@ -12,7 +12,7 @@ const ProductTabLeft = () => {
   let { pathname } = useLocation();
   let { id } = useParams();
   const { products } = useSelector((state) => state.product);
-  const product = products.find(product => product.id === id);
+  const product = products.find((product) => product.id === id);
 
   return (
     <Fragment>
@@ -26,13 +26,16 @@ const ProductTabLeft = () => {
         <Breadcrumb
           pages={[
             { label: "Início", path: process.env.PUBLIC_URL + "/" },
-            { label: "Visualizando Produto", path: process.env.PUBLIC_URL + pathname }
+            {
+              label: "Visualizando Produto",
+              path: process.env.PUBLIC_URL + pathname,
+            },
           ]}
         />
 
         {/* product description with image */}
         <ProductImageDescription
-          spaceTopClass="pt-100"
+          spaceTopClass="pt-30"
           spaceBottomClass="pb-100"
           product={product}
           galleryType="leftThumb"
@@ -47,6 +50,5 @@ const ProductTabLeft = () => {
     </Fragment>
   );
 };
-
 
 export default ProductTabLeft;

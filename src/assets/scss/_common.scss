@@ -26,9 +26,21 @@ body {
   font-weight: 400;
   font-style: normal;
   line-height: 24px;
-
   color: #000;
   background-color: $bg-purple-light;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: $theme-color;
 }
 
 h1,
@@ -677,8 +689,6 @@ a:hover {
 }
 
 .pt-100 {
-  padding-top: 100px;
-
   @media #{$xs-layout} {
     padding-top: 60px;
   }
@@ -1726,7 +1736,7 @@ textarea:focus {
 ------------------------------------------*/
 
 .bg-purple {
-  background-color: #F0408F;
+  background-color: #f0408f;
 }
 
 .bg-purple-2 {
@@ -1734,7 +1744,7 @@ textarea:focus {
 }
 
 .bg-gray {
-  background-color: #f6f6f8;
+  background-color: $bg-purple-light;
 }
 
 .bg-gray-2 {
@@ -1742,7 +1752,7 @@ textarea:focus {
 }
 
 .bg-gray-3 {
-  background-color: #f7f7f7;
+  background-color: $bg-purple-light;
 }
 
 .bg-gray-4 {
@@ -1795,7 +1805,6 @@ textarea:focus {
 }
 
 .btn-hover {
-
   a,
   button {
     position: relative;
@@ -1804,7 +1813,8 @@ textarea:focus {
 
     &:hover {
       color: #fff;
-      border: 1px solid $theme-color;
+      border: 1px solid $theme-color-two;
+      background-color: $theme-color-two;
     }
 
     &::before,
@@ -1827,7 +1837,7 @@ textarea:focus {
 
       width: 0;
 
-      background: $theme-color;
+      background: $theme-color-two;
     }
 
     &:hover::after {
@@ -1839,7 +1849,6 @@ textarea:focus {
   }
 
   &--blue {
-
     a,
     button {
       &:hover {
@@ -1863,8 +1872,8 @@ a.default-btn {
 
   text-transform: uppercase;
 
-  color: #010101;
-  border: 1px solid #333;
+  color: $theme-color-two;
+  border: 1px solid $theme-color-two;
 }
 
 /* slider img bounce */
@@ -2041,7 +2050,8 @@ a.default-btn {
   background-size: cover;
 }
 
-.product-small-image-wrapper.product-small-image-wrapper--side-thumb .swiper-wrap,
+.product-small-image-wrapper.product-small-image-wrapper--side-thumb
+  .swiper-wrap,
 .swiper-pointer-events.swiper-vertical {
   height: 100%;
 }

@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
-import { Link, useLocation } from "react-router-dom"; 
+import { Link, useLocation } from "react-router-dom";
 import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
 import SEO from "../../components/seo";
 import LayoutOne from "../../layouts/LayoutOne";
-import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
+import vector from "../../assets/svg/vector-login.svg";
 
 const LoginRegister = () => {
   let { pathname } = useLocation();
@@ -18,8 +18,15 @@ const LoginRegister = () => {
       <LayoutOne headerTop="visible">
         <div className="login-register-area pt-100 pb-100">
           <div className="container">
-            <div className="row">
-              <div className="col-lg-7 col-md-12 ms-auto me-auto">
+            <div className="row align-items-center">
+              <div className="col-lg-6 col-md-12 mb-4 mb-lg-0">
+                <img
+                  src={vector}
+                  alt="image-login"
+                  className="login-register-image"
+                />
+              </div>
+              <div className="col-lg-6 col-md-12">
                 <div className="login-register-wrapper">
                   <Tab.Container defaultActiveKey="login">
                     <Nav variant="pills" className="login-register-tab-list">
@@ -40,19 +47,21 @@ const LoginRegister = () => {
                           <div className="login-register-form">
                             <form>
                               <input
-                                type="text"
+                                type="e-mail"
                                 name="user-name"
-                                placeholder="Username"
+                                placeholder="Email"
                               />
                               <input
                                 type="password"
                                 name="user-password"
-                                placeholder="Password"
+                                placeholder="Senha"
                               />
                               <div className="button-box">
                                 <div className="login-toggle-btn">
                                   <input type="checkbox" />
-                                  <label className="ml-10">Lembrar de mim</label>
+                                  <label className="ml-10">
+                                    Lembrar de mim
+                                  </label>
                                   <Link to={process.env.PUBLIC_URL + "/"}>
                                     Esqueceu sua senha?
                                   </Link>
@@ -72,16 +81,16 @@ const LoginRegister = () => {
                               <input
                                 type="text"
                                 name="user-name"
-                                placeholder="Username"
+                                placeholder="Nome"
                               />
                               <input
                                 type="password"
                                 name="user-password"
-                                placeholder="Password"
+                                placeholder="Senha"
                               />
                               <input
                                 name="user-email"
-                                placeholder="Email"
+                                placeholder="E-mail"
                                 type="email"
                               />
                               <div className="button-box">
