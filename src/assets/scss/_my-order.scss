@@ -1,0 +1,22 @@
+@import "variables";
+
+.custom-light {
+  font-weight: 300 !important;
+}
+
+.th-table-order {
+  color: $theme-color-two;
+}
+
+.td-table-order {
+  font-weight: 300;
+
+  &--details {
+    color: $theme-color-two;
+
+    &:hover {
+      color: $theme-color;
+      cursor: pointer;
+    }
+  }
+}

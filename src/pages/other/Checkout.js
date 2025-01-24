@@ -111,12 +111,14 @@ const Checkout = () => {
                         </div>
                       </div>
 
-                      <div className="col-lg-6 col-md-6">
-                        <div className="billing-info mb-20">
-                          <label>CEP</label>
-                          <input type="text" placeholder="00000-000" />
+                      {shipAddress === "1" && (
+                        <div className="col-lg-6 col-md-6">
+                          <div className="billing-info mb-20">
+                            <label>CEP</label>
+                            <input type="text" placeholder="00000-000" />
+                          </div>
                         </div>
-                      </div>
+                      )}
 
                       <div className="col-lg-6 col-md-6">
                         <div className="billing-info mb-20">
@@ -140,6 +142,24 @@ const Checkout = () => {
                         <div className="billing-info mb-20">
                           <label>Data para entrega</label>
                           <input className="form-select" type="date" />
+                        </div>
+                      </div>
+
+                      <div className="col-lg-6 col-md-6">
+                        <div className="billing-info mb-20">
+                          <label htmlFor="appointment-time">
+                            Horário para entrega
+                          </label>
+                          <input
+                            type="time"
+                            id="appointment-time"
+                            name="appointment-time"
+                            // value={time}
+                            min="08:00"
+                            max="18:00"
+                            // onChange={handleTimeChange}
+                            required
+                          />
                         </div>
                       </div>
                     </div>
