@@ -4,6 +4,7 @@ import Accordion from "react-bootstrap/Accordion";
 import SEO from "../../components/seo";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
+import MyOrder from "../../components/my-order/MyOrder";
 
 const MyAccount = () => {
   let { pathname } = useLocation();
@@ -38,8 +39,7 @@ const MyAccount = () => {
                       </Accordion.Header>
                       <Accordion.Body>
                         <div className="myaccount-info-wrapper">
-                          <div className="account-info-wrapper">
-                            <h4>Informações da minha conta</h4>
+                          <div className="account-info-wrapper text-center">
                             <h5>Seus dados pessoais</h5>
                           </div>
                           <div className="row">
@@ -92,14 +92,10 @@ const MyAccount = () => {
                       </Accordion.Header>
                       <Accordion.Body>
                         <div className="myaccount-info-wrapper">
-                          <div className="account-info-wrapper">
-                            <h4>Alterar senha</h4>
-                            <h5>Sua senha</h5>
-                          </div>
                           <div className="row">
                             <div className="col-lg-12 col-md-12">
                               <div className="billing-info">
-                                <label>Senha</label>
+                                <label>Nova Senha</label>
                                 <input type="password" />
                               </div>
                             </div>
@@ -130,17 +126,19 @@ const MyAccount = () => {
                       <Accordion.Body>
                         <div className="myaccount-info-wrapper">
                           <div className="account-info-wrapper">
-                            <h4>Registro catálogo de endereços</h4>
+                            <h4 className="text-center">
+                              Registro catálogo de endereços
+                            </h4>
                           </div>
                           <div className="entries-wrapper">
                             <div className="row">
                               <div className="col-lg-6 col-md-6 d-flex align-items-center justify-content-center">
                                 <div className="entries-info text-center">
-                                  <p>John Doe</p>
-                                  <p>Paul Park </p>
-                                  <p>Lorem ipsum dolor set amet</p>
-                                  <p>NYC</p>
-                                  <p>New York</p>
+                                  <p>Av. Paulista, 1253</p>
+                                  <p>Av. dos Maracatins, 2456 </p>
+                                  <p>Rua Santa Cruz, 566</p>
+                                  <p>Rua Vinte e oito de Setembro, 1122</p>
+                                  <p>Rua Texas, 3</p>
                                 </div>
                               </div>
                               <div className="col-lg-6 col-md-6 d-flex align-items-center justify-content-center">
@@ -156,6 +154,24 @@ const MyAccount = () => {
                               <button type="submit">Continue</button>
                             </div>
                           </div>
+                        </div>
+                      </Accordion.Body>
+                    </Accordion.Item>
+
+                    <Accordion.Item
+                      eventKey="3"
+                      className="single-my-account mb-20"
+                    >
+                      <Accordion.Header className="panel-heading">
+                        <span>4 .</span> Meus pedidos
+                      </Accordion.Header>
+                      <Accordion.Body>
+                        <div className="myaccount-info-wrapper">
+                          <h4 className="my-order-header">Em andamento</h4>
+
+                          <MyOrder />
+
+                          <h4 className="my-order-header">Finalizados</h4>
                         </div>
                       </Accordion.Body>
                     </Accordion.Item>

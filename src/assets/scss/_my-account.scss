@@ -4,10 +4,10 @@
   .accordion {
     &-item {
       margin-bottom: 20px;
-      border: 3px solid #ffe4e1;
+      border: 3px solid #d2afaf;
     }
     &-button {
-      background-color: #ffeff0;
+      background-color: #ffe4e1;
       font-size: 15px;
       font-weight: 500;
       margin: 0;
@@ -24,7 +24,6 @@
         top: 16px;
       }
       &[aria-expanded="true"] {
-        border-bottom: 1px solid #ffe4e1;
       }
       &:focus {
         box-shadow: none;
@@ -53,6 +52,7 @@
       }
     }
     &-body {
+      padding: 0;
       border-bottom: 1px solid #ffe4e1;
     }
   }
@@ -61,7 +61,7 @@
 .single-my-account {
   .myaccount-info-wrapper {
     padding: 30px 20px;
-    background-color: #fff;
+    background-color: #ffe4e1;
     .account-info-wrapper {
       border-bottom: 1px solid #ffe4e1;
       margin-bottom: 28px;
@@ -86,7 +86,7 @@
       }
       input {
         background: transparent none repeat scroll 0 0;
-        border: 1px solid $theme-color;
+        border: 1px solid $theme-color-two;
         color: #333;
         height: 40px;
         padding: 0 15px;
@@ -188,5 +188,25 @@
         }
       }
     }
+  }
+}
+
+.my-order-header {
+  text-align: center;
+  font-weight: 500;
+  padding: 5px;
+  border: 1px solid $theme-color;
+}
+
+.order-details {
+  width: 100%;
+
+  &__details {
+    width: 200px;
+  }
+
+  &__img {
+    width: 100px;
+    height: 100px;
   }
 }
