@@ -71,7 +71,7 @@ const Cart = () => {
                                     <img
                                       className="img-fluid"
                                       src={
-                                        process.env.PUBLIC_URL +
+                                        process.env.REACT_APP_API_URL +
                                         cartItem.image[0]
                                       }
                                       alt=""
@@ -130,22 +130,11 @@ const Cart = () => {
                                     <button
                                       className="inc qtybutton"
                                       onClick={() =>
-                                        dispatch(
-                                          addToCart({
-                                            ...cartItem,
-                                            quantity: quantityCount,
-                                          })
-                                        )
-                                      }
-                                      disabled={
-                                        cartItem !== undefined &&
-                                        cartItem.quantity &&
-                                        cartItem.quantity >=
-                                          cartItemStock(
-                                            cartItem,
-                                            cartItem.selectedProductColor,
-                                            cartItem.selectedProductSize
-                                          )
+                                        cartItem.quantity < 5 &&
+                                        dispatch(addToCart({
+                                          ...cartItem,
+                                          quantity: quantityCount
+                                        }))
                                       }
                                     >
                                       +
@@ -167,9 +156,7 @@ const Cart = () => {
                                 <td className="product-remove">
                                   <button
                                     onClick={() =>
-                                      dispatch(
-                                        deleteFromCart(cartItem.cartItemId)
-                                      )
+                                      dispatch(deleteFromCart(cartItem.cartItemId))
                                     }
                                   >
                                     <i className="fa fa-times"></i>

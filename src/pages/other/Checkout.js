@@ -4,9 +4,11 @@ import { useSelector } from "react-redux";
 import { getDiscountPrice } from "../../helpers/product";
 import SEO from "../../components/seo";
 import LayoutOne from "../../layouts/LayoutOne";
+import axios from "../../services/axiosInstance";
 
 const Checkout = () => {
   const [shipAddress, setShipAddress] = useState("");
+  const [qrCodeBase64, setQrCodeBase64] = useState('');
 
   let cartTotalPrice = 0;
 
@@ -31,6 +33,35 @@ const Checkout = () => {
   const currency = useSelector((state) => state.currency);
   const { cartItems } = useSelector((state) => state.cart);
 
+  const createPixPayment = async () => {
+    try {
+      const response = await axios.post('/payments/pix', {
+        amount: 100.0,
+        description: 'Pagamento de Teste',
+        payer: {
+          email: 'cliente@example.com',
+          first_name: 'Nome',
+          last_name: 'Sobrenome',
+          identification: {
+            type: 'CPF',
+            number: '12345678900',
+          },
+        },
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      const qrCodeBase64 = response.data;
+      console.log(qrCodeBase64);
+      setQrCodeBase64(qrCodeBase64);
+    } catch (error) {
+      console.error('Error creating Pix payment:', error);
+      // Handle error appropriately
+    }
+  }
+
   return (
     <Fragment>
       <SEO
@@ -38,6 +69,7 @@ const Checkout = () => {
         description="Finalize sua compra na EuComproPraVocê!"
       />
       <LayoutOne headerTop="visible">
+        { !qrCodeBase64 ?
         <div className="checkout-area pt-60 pb-100">
           <div className="container">
             {cartItems && cartItems.length >= 1 ? (
@@ -203,7 +235,7 @@ const Checkout = () => {
                             <li className="your-order-shipping">
                               Entrega<span className="contrast">*</span>
                             </li>
-                            <li>R$ 0</li>
+                            <li>Calculado e pago posteriormente</li>
                           </ul>
                         </div>
                         <div className="your-order-total">
@@ -219,7 +251,7 @@ const Checkout = () => {
                       <div className="payment-method"></div>
                     </div>
                     <div className="place-order mt-25">
-                      <button className="btn-hover">Pagar</button>
+                      <button onClick={createPixPayment} className="btn-hover">Pagar</button>
                     </div>
                   </div>
                   <div className="info-frete">
@@ -248,6 +280,14 @@ const Checkout = () => {
             )}
           </div>
         </div>
+        :
+          <img
+            src={`data:image/png;base64,${qrCodeBase64}`}
+            height={300}
+            width={300}
+            alt="QR Code Pix"
+          />
+        }
       </LayoutOne>
     </Fragment>
   );
