@@ -5,19 +5,18 @@ import axios from "axios";
 // };
 
 const axiosInstance = axios.create({
-  // withCredentials: true,
+  withCredentials: false,
   // withXSRFToken: true,
   // xsrfCookieName: "XSRF-TOKEN",
   // xsrfHeaderName: "X-XSRF-TOKEN",
   baseURL: `${process.env.REACT_APP_API_URL}/api`,
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  },
 });
 
-// axiosInstance.interceptors.request.use(async (config) => {
-//   if (config.method !== "post") {
-//     return config;
-//   }
-//   await axiosInstance.get(ENDPOINTS.CSRF_COOKIE);
-//   return config;
-// });
-//
+axiosInstance.interceptors.request.use(async (config) => {
+  return config;
+});
 export default axiosInstance;

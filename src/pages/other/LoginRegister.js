@@ -1,13 +1,35 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
 import SEO from "../../components/seo";
 import LayoutOne from "../../layouts/LayoutOne";
 import vector from "../../assets/svg/vector-login.svg";
+import { useDispatch } from "react-redux";
+import { login } from "../../store/slices/login-slice.js";
+import axios from "../../services/axiosInstance";
 
 const LoginRegister = () => {
-  let { pathname } = useLocation();
+  const dispatch = useDispatch();
+
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const userData = await axios.post("/auth/local", {
+        identifier: email,
+        password: senha,
+      });
+
+      dispatch(login(userData.data));
+      localStorage.setItem("jwt", userData.data.jwt);
+      window.location.href = "/";
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <Fragment>
@@ -45,16 +67,22 @@ const LoginRegister = () => {
                       <Tab.Pane eventKey="login">
                         <div className="login-form-container">
                           <div className="login-register-form">
-                            <form>
+                            <form onSubmit={handleLogin}>
                               <input
                                 type="e-mail"
                                 name="user-name"
                                 placeholder="Email"
+                                onChange={({ target }) =>
+                                  setEmail(target.value)
+                                }
                               />
                               <input
                                 type="password"
                                 name="user-password"
                                 placeholder="Senha"
+                                onChange={({ target }) =>
+                                  setSenha(target.value)
+                                }
                               />
                               <div className="button-box">
                                 <div className="login-toggle-btn">

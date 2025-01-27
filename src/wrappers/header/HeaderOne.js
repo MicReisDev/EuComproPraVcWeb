@@ -3,12 +3,15 @@ import { useEffect, useState } from "react";
 import clsx from "clsx";
 import Logo from "../../components/header/Logo";
 import IconGroup from "../../components/header/IconGroup";
+import NavMenu from "../../components/header/NavMenu";
+import LoggedIconGroup from "../../components/header/LoggedIconGroup";
+import { useSelector, useDispatch } from "react-redux";
 
 const HeaderOne = ({
   layout,
   headerPaddingClass,
   headerPositionClass,
-  headerBgClass
+  headerBgClass,
 }) => {
   const [scroll, setScroll] = useState(0);
   const [headerTop, setHeaderTop] = useState(0);
@@ -26,8 +29,16 @@ const HeaderOne = ({
     setScroll(window.scrollY);
   };
 
+  const logado = useSelector((state) => state.user.isLoggedIn);
+
   return (
-    <header className={clsx("header-area clearfix", headerBgClass, headerPositionClass)}>
+    <header
+      className={clsx(
+        "header-area clearfix",
+        headerBgClass,
+        headerPositionClass
+      )}
+    >
       <div
         className={clsx(
           headerPaddingClass,
@@ -41,11 +52,10 @@ const HeaderOne = ({
               {/* header logo */}
               <Logo imageUrl="/assets/img/logo/logo.svg" logoClass="logo" />
             </div>
-            <div className="col-lg-8 d-none d-lg-block">
-            </div>
+            <div className="col-lg-8 d-none d-lg-block"></div>
             <div className="col-xl-2 col-lg-2 col-md-6 col-8 d-flex align-items-center justify-content-end">
               {/* Icon group */}
-              <IconGroup />
+              {logado ? <LoggedIconGroup /> : <IconGroup />}
             </div>
           </div>
         </div>
@@ -59,7 +69,7 @@ HeaderOne.propTypes = {
   headerPaddingClass: PropTypes.string,
   headerPositionClass: PropTypes.string,
   layout: PropTypes.string,
-  top: PropTypes.string
+  top: PropTypes.string,
 };
 
 export default HeaderOne;
